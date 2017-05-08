@@ -1,0 +1,1 @@
+/usr/bin/c++.exe  -g  -Wl,--enable-auto-import CMakeFiles/CableCar.dir/main.cpp.o  -o CableCar.exe -Wl,--out-implib,libCableCar.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
