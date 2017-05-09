@@ -65,7 +65,7 @@ int main() {
         cin >> N;
         cin >> M;
         UF myUF(N);
-        int idHaters[N][N] = {0};
+        int idHaters[N][M] = {0};
         int Haters_list[M][2] = {0};
         int numHaters[N] = {0};
         for (int m = 0; m < M; m ++) {
@@ -74,8 +74,11 @@ int main() {
             cin >> temp2;
             temp1 -= 1;
             temp2 -= 1;
-            if (relationship == "F")
+            if (relationship == "F") {
                 myUF.merge(temp1, temp2);
+                Haters_list[m][0] = 0;
+                Haters_list[m][1] = 0;
+            }
             else {
                 Haters_list[m][0] = temp1;
                 Haters_list[m][1] = temp2;
@@ -84,12 +87,14 @@ int main() {
         for (int m = 0; m < M; m ++) {
             temp1 = Haters_list[m][0];
             temp2 = Haters_list[m][1];
-            int root_temp1 = myUF.find(temp1);
-            int root_temp2 = myUF.find(temp2);
-            idHaters[root_temp1][numHaters[root_temp1]] = temp2;
-            idHaters[root_temp2][numHaters[root_temp2]] = temp1;
-            numHaters[root_temp1] += 1;
-            numHaters[root_temp2] += 1;
+            if (temp1 != temp2) {
+                int root_temp1 = myUF.find(temp1);
+                int root_temp2 = myUF.find(temp2);
+                idHaters[root_temp1][numHaters[root_temp1]] = root_temp2;
+                idHaters[root_temp2][numHaters[root_temp2]] = root_temp1;
+                numHaters[root_temp1] += 1;
+                numHaters[root_temp2] += 1;
+            }
         }
         for (int i = 0; i < N; i ++){
             if (numHaters[i] > 1) {

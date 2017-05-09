@@ -60,21 +60,24 @@ int main() {
         cin >> c;
         int money[a-1];
         UF myUF(a);
+        UF myRelatives(a);
         for (int aa = 0; aa < a-1; aa ++)
             cin >> money[aa];
         int temp1, temp2;
         for (int bb = 0; bb < b; bb ++) {
             cin >> temp1;
             cin >> temp2;
-            myUF.merge(temp1-1, temp2-1);
+            myRelatives.merge(temp1-1, temp2-1);
         }
-        int temp;
-        for (int cc = 0; cc < 2*c; cc ++) {
-            cin >> temp;
-            myUF.merge(a-1, temp-1);
+        for (int cc = 0; cc < c; cc ++) {
+            cin >> temp1;
+            cin >> temp2;
+            myUF.merge(a-1, temp1-1);
+            myUF.merge(a-1, temp2-1);
+            myRelatives.merge(temp1-1, temp2-1);
         }
         for (int i = 0; i < a-1; i ++){
-            if (myUF.find(i) == myUF.find(a-1))
+            if (myUF.find(i) == myUF.find(a-1) || myRelatives.find(i) == myRelatives.find(a-1))
                 money[i] = 0;
         }
         marrywith[t] = money[0];
