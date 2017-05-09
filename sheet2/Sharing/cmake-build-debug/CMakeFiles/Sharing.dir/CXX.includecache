@@ -6,11 +6,9 @@
 
 #IncludeRegexTransform: 
 
-/cygdrive/c/Users/Yuanze/CLionProjects/Sharing/main.cpp
+/u/halle/chenyua/home_at/Downloads/SS16-17/ProContest/sheet2/Sharing/main.cpp
 iostream
 -
 algorithm
--
-cmath
 -
 

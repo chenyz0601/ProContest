@@ -1,8 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/Diplomacy.dir/main.cpp.o"
   "Diplomacy.pdb"
-  "Diplomacy.exe"
-  "libDiplomacy.dll.a"
+  "Diplomacy"
 )
 
 # Per-language clean rules from dependency scanning.

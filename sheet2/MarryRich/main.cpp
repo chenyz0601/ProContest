@@ -12,7 +12,6 @@ public:
             sz[i] = 1;
         }
     }
-
     ~UF(){delete [] id; delete [] sz;}
 
     int find(int p){
@@ -26,7 +25,6 @@ public:
         }
         return root;
     }
-
     void merge(int x, int y){
         int i = find(x);
         int j = find(y);
@@ -42,11 +40,9 @@ public:
         }
         cnt --;
     }
-
-    bool connected(int x, int y){
+    bool isConnected(int x, int y){
         return find(x) == find(y);
     }
-
     int count(){
         return cnt;
     }

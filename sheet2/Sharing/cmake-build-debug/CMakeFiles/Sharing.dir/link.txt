@@ -1,1 +1,1 @@
-/usr/bin/c++.exe  -g  -Wl,--enable-auto-import CMakeFiles/Sharing.dir/main.cpp.o  -o Sharing.exe -Wl,--out-implib,libSharing.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
+/usr/bin/c++   -g   CMakeFiles/Sharing.dir/main.cpp.o  -o Sharing 

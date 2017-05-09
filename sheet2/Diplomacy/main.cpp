@@ -1,5 +1,4 @@
 #include <iostream>
-#include <vector>
 
 using namespace std;
 
@@ -66,7 +65,8 @@ int main() {
         cin >> N;
         cin >> M;
         UF myUF(N);
-        int idHaters[N][M] = {0};
+        int idHaters[N][N] = {0};
+        int Haters_list[M][2] = {0};
         int numHaters[N] = {0};
         for (int m = 0; m < M; m ++) {
             cin >> relationship;
@@ -77,11 +77,19 @@ int main() {
             if (relationship == "F")
                 myUF.merge(temp1, temp2);
             else {
-                idHaters[temp1][numHaters[temp1]] = temp2;
-                idHaters[temp2][numHaters[temp1]] = temp1;
-                numHaters[temp1] += 1;
-                numHaters[temp2] += 1;
+                Haters_list[m][0] = temp1;
+                Haters_list[m][1] = temp2;
             }
+        }
+        for (int m = 0; m < M; m ++) {
+            temp1 = Haters_list[m][0];
+            temp2 = Haters_list[m][1];
+            int root_temp1 = myUF.find(temp1);
+            int root_temp2 = myUF.find(temp2);
+            idHaters[root_temp1][numHaters[root_temp1]] = temp2;
+            idHaters[root_temp2][numHaters[root_temp2]] = temp1;
+            numHaters[root_temp1] += 1;
+            numHaters[root_temp2] += 1;
         }
         for (int i = 0; i < N; i ++){
             if (numHaters[i] > 1) {
