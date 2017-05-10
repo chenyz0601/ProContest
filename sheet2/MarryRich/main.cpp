@@ -52,42 +52,50 @@ using namespace std;
 int main() {
     int T;
     cin >> T;
-    int marrywith[T];
+    int marryWith[T];
     for (int t = 0; t < T; t ++) {
         int a, b, c;
         cin >> a;
         cin >> b;
         cin >> c;
-        int money[a-1];
-        UF myUF(a);
-        UF myRelatives(a);
-        for (int aa = 0; aa < a-1; aa ++)
-            cin >> money[aa];
-        int temp1, temp2;
-        for (int bb = 0; bb < b; bb ++) {
-            cin >> temp1;
-            cin >> temp2;
-            myRelatives.merge(temp1-1, temp2-1);
-        }
-        for (int cc = 0; cc < c; cc ++) {
-            cin >> temp1;
-            cin >> temp2;
-            myUF.merge(a-1, temp1-1);
-            myUF.merge(a-1, temp2-1);
-            myRelatives.merge(temp1-1, temp2-1);
-        }
-        for (int i = 0; i < a-1; i ++){
-            if (myUF.find(i) == myUF.find(a-1) || myRelatives.find(i) == myRelatives.find(a-1))
-                money[i] = 0;
-        }
-        marrywith[t] = money[0];
-        for (int i = 1; i < a-1; i ++){
-            if (money[i] > marrywith[t])
-                marrywith[t] = money[i];
+        if (a == 1)
+            marryWith[t] = 0;
+        else {
+            int money[a-1];
+            UF myMarried(a);
+            UF myRelatives(a);
+            for (int aa = 0; aa < a-1; aa ++)
+                cin >> money[aa];
+            int temp1, temp2;
+            for (int bb = 0; bb < b; bb ++) {
+                cin >> temp1;
+                cin >> temp2;
+                myRelatives.merge(temp1-1, temp2-1);
+            }
+            for (int cc = 0; cc < c; cc ++) {
+                cin >> temp1;
+                cin >> temp2;
+                myMarried.merge(a-1, temp1-1);
+                myMarried.merge(a-1, temp2-1);
+                myRelatives.merge(temp1-1, temp2-1);
+            }
+            for (int i = 0; i < a-1; i ++){
+                if (myRelatives.isConnected(i, a - 1) || myMarried.isConnected(i, a - 1))
+                    money[i] = 0;
+            }
+            marryWith[t] = money[0];
+            for (int i = 1; i < a-1; i ++){
+                if (money[i] > marryWith[t])
+                    marryWith[t] = money[i];
+            }
         }
     }
 
-    for (int t = 0; t < T; t ++)
-        cout << "Case #" << t+1 << ": " << marrywith[t] <<endl;
+    for (int t = 0; t < T; t ++) {
+        if (marryWith[t] > 0)
+            cout << "Case #" << t+1 << ": " << marryWith[t] <<endl;
+        else
+            cout << "Case #" << t+1 << ": " << "impossible" <<endl;
+    }
     return 0;
 }

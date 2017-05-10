@@ -64,48 +64,68 @@ int main() {
         string relationship;
         cin >> N;
         cin >> M;
-        UF myUF(N);
-        int idHaters[N][M] = {0};
-        int Haters_list[M][2] = {0};
-        int numHaters[N] = {0};
-        for (int m = 0; m < M; m ++) {
-            cin >> relationship;
-            cin >> temp1;
-            cin >> temp2;
-            temp1 -= 1;
-            temp2 -= 1;
-            if (relationship == "F") {
-                myUF.merge(temp1, temp2);
-                Haters_list[m][0] = 0;
-                Haters_list[m][1] = 0;
-            }
-            else {
-                Haters_list[m][0] = temp1;
-                Haters_list[m][1] = temp2;
-            }
-        }
-        for (int m = 0; m < M; m ++) {
-            temp1 = Haters_list[m][0];
-            temp2 = Haters_list[m][1];
-            if (temp1 != temp2) {
-                int root_temp1 = myUF.find(temp1);
-                int root_temp2 = myUF.find(temp2);
-                idHaters[root_temp1][numHaters[root_temp1]] = root_temp2;
-                idHaters[root_temp2][numHaters[root_temp2]] = root_temp1;
-                numHaters[root_temp1] += 1;
-                numHaters[root_temp2] += 1;
-            }
-        }
-        for (int i = 0; i < N; i ++){
-            if (numHaters[i] > 1) {
-                for (int j = 0; j < numHaters[i]-1; j ++)
-                    myUF.merge(idHaters[i][j],idHaters[i][j+1]);
-            }
-        }
-        if (2*myUF.num_setMembers(0) > N)
+        if (N == 1)
             result[t] = "yes";
-        else
-            result[t] = "no";
+        else {
+            UF Friends(N);
+            int Haters_list[M][2] = {0};
+            for (int m = 0; m < M; m++) {
+                cin >> relationship;
+                cin >> temp1;
+                cin >> temp2;
+                temp1 -= 1;
+                temp2 -= 1;
+                if (relationship == "F") {
+                    Friends.merge(temp1, temp2);
+                    Haters_list[m][0] = 0;
+                    Haters_list[m][1] = 0;
+                } else {
+                    Haters_list[m][0] = temp1;
+                    Haters_list[m][1] = temp2;
+                }
+            }
+            int myHaters[N];
+            fill_n(myHaters, N, -1);
+            for (int m = 0; m < M; m ++) {
+                temp1 = Haters_list[m][0];
+                temp2 = Haters_list[m][1];
+                if (temp1 != temp2) {
+                    int root_temp1 = Friends.find(temp1);
+                    int root_temp2 = Friends.find(temp2);
+                    if (myHaters[root_temp1] == -1)
+                        myHaters[root_temp1] = root_temp2;
+                    else {
+                        Friends.merge(myHaters[root_temp1], root_temp2);
+                        myHaters[root_temp1] = root_temp2;
+                    }
+                    if (myHaters[root_temp2] == -1)
+                        myHaters[root_temp2] = root_temp1;
+                    else {
+                        Friends.merge(myHaters[root_temp2], root_temp1);
+                        myHaters[root_temp2] = root_temp1;
+                    }
+                    /*
+                    /*
+                    Haters.merge(root_temp1, root_temp2);
+                    if (root_temp1 == myRoot)
+                        myHaters[root_temp2] = true;
+                    if (root_temp2 == myRoot)
+                        myHaters[root_temp1] = true;
+                    */
+                }
+            }
+            /*
+            for (int i = 0; i < N; i ++){
+                int curRoot = Friends.find(i);
+                if (Haters.isConnected(curRoot, myRoot ) && !myHaters[curRoot])
+                    Friends.merge(myRoot, curRoot);
+            }
+            */
+            if (2*Friends.num_setMembers(0) > N)
+                result[t] = "yes";
+            else
+                result[t] = "no";
+        }
     }
     for (int t = 0; t < T; t ++)
         cout << "Case #" << t+1 << ": " << result[t] << endl;
