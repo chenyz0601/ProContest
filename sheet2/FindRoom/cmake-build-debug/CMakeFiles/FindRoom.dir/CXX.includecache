@@ -1,0 +1,14 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/u/halle/chenyua/home_at/Downloads/SS16-17/ProContest/sheet2/FindRoom/main.cpp
+iostream
+-
+algorithm
+-
+
