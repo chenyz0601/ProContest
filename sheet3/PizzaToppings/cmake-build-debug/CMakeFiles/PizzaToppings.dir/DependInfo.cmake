@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/u/halle/chenyua/home_at/Downloads/SS16-17/ProContest/sheet3/PizzaToppings/main.cpp" "/u/halle/chenyua/home_at/Downloads/SS16-17/ProContest/sheet3/PizzaToppings/cmake-build-debug/CMakeFiles/PizzaToppings.dir/main.cpp.o"
+  "/cygdrive/d/files/SS16-17/ProContest/sheet3/PizzaToppings/main.cpp" "/cygdrive/d/files/SS16-17/ProContest/sheet3/PizzaToppings/cmake-build-debug/CMakeFiles/PizzaToppings.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

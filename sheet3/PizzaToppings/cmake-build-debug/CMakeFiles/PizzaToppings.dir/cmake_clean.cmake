@@ -1,7 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/PizzaToppings.dir/main.cpp.o"
   "PizzaToppings.pdb"
-  "PizzaToppings"
+  "PizzaToppings.exe"
+  "libPizzaToppings.dll.a"
 )
 
 # Per-language clean rules from dependency scanning.

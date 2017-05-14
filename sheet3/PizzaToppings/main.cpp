@@ -31,7 +31,6 @@ void Graph::addEdge(int v, int w) {
 
 bool Graph::DFSUtil(int v, int pare_mark) {
     mark[v] = 1 - pare_mark;
-    cout << v << " ";
     list<int>::iterator i;
     for (i = adj[v].begin(); i != adj[v].end(); i ++) {
         if (mark[*i] != -1) {
@@ -63,7 +62,7 @@ int main() {
             g.addEdge(a-1, b-1);
         }
         for (int i = 0; i < N; i ++) {
-            if (g.mark[i] != -1) {
+            if (g.mark[i] == -1) {
                 g.DFS(i);
                 if (g.notPossible) {
                     result[t] = "no";
@@ -75,6 +74,6 @@ int main() {
             result[t] = "yes";
     }
     for (int t = 0; t < T; t ++)
-        cout << "Case #" << t+1 << ": " << result[t];
+        cout << "Case #" << t+1 << ": " << result[t] << endl;
     return 0;
 }

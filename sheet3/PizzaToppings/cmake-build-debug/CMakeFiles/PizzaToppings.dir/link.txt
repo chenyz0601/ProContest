@@ -1,1 +1,1 @@
-/usr/bin/c++   -g   CMakeFiles/PizzaToppings.dir/main.cpp.o  -o PizzaToppings 
+/usr/bin/c++.exe  -g  -Wl,--enable-auto-import CMakeFiles/PizzaToppings.dir/main.cpp.o  -o PizzaToppings.exe -Wl,--out-implib,libPizzaToppings.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
