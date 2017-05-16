@@ -1,0 +1,1 @@
+/usr/bin/c++   -g   CMakeFiles/CityRodas.dir/main.cpp.o  -o CityRodas 

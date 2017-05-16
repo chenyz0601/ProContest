@@ -19,7 +19,7 @@ bool acompare(struct Edge lhs, struct Edge rhs) {
 int keys(int key[], bool mstSet[], int V) {
     int min = INT8_MAX, min_index;
     for (int v = 0; v < V; v ++)
-        if (mstSet[v] == false && key[v] < min)
+        if (!mstSet[v] && key[v] < min)
             min = key[v], min_index = v;
     return min_index;
 }
@@ -44,7 +44,7 @@ void primMST(int **graph, int V, struct Edge *result) {
         int u = keys(key, mstSet, V);
         mstSet[u] = true;
         for (int v = 0; v < V; v ++) {
-            if (graph[u][v] && mstSet[v] == false && graph[u][v] < key[v])
+            if (graph[u][v] && !mstSet[v] && graph[u][v] < key[v])
                 parent[v] = u, key[v] = graph[u][v];
         }
     }
@@ -70,7 +70,7 @@ int main() {
         if (V == 1) {
             int c;
             cin >> c;
-            cout << "Case #" << t + 1 << ": impossible" << endl;
+            cout << "Case #" << t + 1 << ":" << endl;
         }
         else {
             struct Edge result[V - 1];

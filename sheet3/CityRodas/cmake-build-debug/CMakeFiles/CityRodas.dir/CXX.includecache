@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/u/halle/chenyua/home_at/Downloads/SS16-17/ProContest/sheet3/CityRodas/main.cpp
+iostream
+-
+list
+-
+stack
+-
+vector
+-
+queue
+-
+

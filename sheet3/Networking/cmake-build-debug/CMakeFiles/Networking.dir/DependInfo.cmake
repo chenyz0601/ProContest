@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/cygdrive/d/files/SS16-17/ProContest/sheet3/Networking/main.cpp" "/cygdrive/d/files/SS16-17/ProContest/sheet3/Networking/cmake-build-debug/CMakeFiles/Networking.dir/main.cpp.o"
+  "/u/halle/chenyua/home_at/Downloads/SS16-17/ProContest/sheet3/Networking/main.cpp" "/u/halle/chenyua/home_at/Downloads/SS16-17/ProContest/sheet3/Networking/cmake-build-debug/CMakeFiles/Networking.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

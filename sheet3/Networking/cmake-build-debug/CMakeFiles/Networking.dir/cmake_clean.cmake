@@ -1,8 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/Networking.dir/main.cpp.o"
   "Networking.pdb"
-  "Networking.exe"
-  "libNetworking.dll.a"
+  "Networking"
 )
 
 # Per-language clean rules from dependency scanning.
