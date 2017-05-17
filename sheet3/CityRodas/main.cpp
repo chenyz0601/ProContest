@@ -206,6 +206,7 @@ int main() {
         bool print = {false};
         while (true) {
             graph.SCC(ref, L, not_stop, print);
+            cout << gloabl_count << endl;
             if (gloabl_count == 0 && !print) {
                 cout << "Case #" << t+1 << ": no" << endl;
                 break;
