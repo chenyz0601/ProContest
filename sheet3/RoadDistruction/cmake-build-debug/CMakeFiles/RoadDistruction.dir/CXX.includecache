@@ -1,0 +1,12 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/u/halle/chenyua/home_at/Downloads/SS16-17/ProContest/sheet3/RoadDistruction/main.cpp
+iostream
+-
+

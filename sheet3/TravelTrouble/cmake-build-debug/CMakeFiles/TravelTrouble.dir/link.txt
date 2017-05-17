@@ -1,0 +1,1 @@
+/usr/bin/c++   -g   CMakeFiles/TravelTrouble.dir/main.cpp.o  -o TravelTrouble 
