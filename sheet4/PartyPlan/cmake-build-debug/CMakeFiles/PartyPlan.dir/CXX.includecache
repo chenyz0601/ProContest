@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/u/halle/chenyua/home_at/Downloads/SS16-17/ProContest/sheet4/PartyPlan/main.cpp
+iostream
+-
+list
+-
+vector
+-
+queue
+-
+

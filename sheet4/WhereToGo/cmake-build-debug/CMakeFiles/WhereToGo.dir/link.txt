@@ -1,0 +1,1 @@
+/usr/bin/c++   -g   CMakeFiles/WhereToGo.dir/main.cpp.o  -o WhereToGo 

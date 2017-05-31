@@ -1,0 +1,1 @@
+/usr/bin/c++   -g   CMakeFiles/PartyPlan.dir/main.cpp.o  -o PartyPlan 
